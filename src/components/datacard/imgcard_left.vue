@@ -60,7 +60,6 @@ export default {
   methods: {},
 };
 </script>
-<style scoped src="@/assets/css/font.css"></style>
 <style scoped>
 .imgcard_left {
   display: flex;
@@ -97,6 +96,8 @@ export default {
   text-align: left;
 }
 .articletitile {
+  font-size: 18px;
+  font-weight: 600;
   padding: 5% 2%;
 }
 .articletitile:hover {
