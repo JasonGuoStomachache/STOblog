@@ -1,5 +1,5 @@
 <template>
-  <div class="pagecover" style="height: 35%; width: 100%">
+  <div class="pagecover" style="width: 100%">
     <div
       class="coverimg"
       :style="{
@@ -25,7 +25,7 @@ export default {
 <style scoped>
 .coverimg {
   width: 100%;
-  height: 100%;
+  height: 300px;
   background-repeat: no-repeat;
   background-size: cover;
 }

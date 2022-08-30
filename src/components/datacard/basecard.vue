@@ -84,7 +84,7 @@ export default {
 }
 .basecardimg {
   width: 100%;
-  height: 80%;
+  height: 88%;
   border-radius: 50%;
   object-fit: cover;
 }

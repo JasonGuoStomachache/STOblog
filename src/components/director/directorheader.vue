@@ -1,8 +1,12 @@
 <template>
-  <div class="directorheader">
+  <div
+    class="directorheader"
+    @mouseover="isshow = true"
+    @mouseout="isshow = false"
+  >
     <div
       class="nav"
-      :class="isshow == true || isalwaystop ? 'navBarShowed' : 'navBarHidden'"
+      :class="true == isshow || isalwaystop ? 'navBarShowed' : 'navBarHidden'"
     >
       <director-colume></director-colume>
     </div>

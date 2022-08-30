@@ -6,7 +6,6 @@
       <colume :columetitle="colume_01"
         ><row-card-list divheight="150px" requirepath="nopath"></row-card-list
       ></colume>
-
       <colume :columetitle="colume_02"
         ><base-card-list requirepath="nopath"></base-card-list
       ></colume>
@@ -29,8 +28,8 @@ export default {
     };
   },
   components: {
-    "page-cover": pagecover,
     "director-header": directorheader,
+    "page-cover": pagecover,
     colume,
     "base-card-list": basecardlist,
     "row-card-list": rowcardlist,
@@ -41,13 +40,16 @@ export default {
 .catalog {
   width: 100%;
   height: 100%;
-  margin-top: 60px;
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 .mainbody {
   background-color: white;
-  margin: 0 25% 0 25%;
   height: 2000px;
-  width: 50%;
+  width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
