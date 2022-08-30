@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import directorprofile from "@/components/directorprofile.vue";
+import directorprofile from "@/components/director/directorprofile.vue";
 import sideimg from "@/components/sideimg.vue";
 import logo from "@/components/logo";
 

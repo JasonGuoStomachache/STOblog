@@ -10,8 +10,8 @@
   </div>
 </template>
 <script>
-import directorheader from "@/components/directorheader.vue";
-import imgcardlist from "@/components/imgcardlist.vue";
+import directorheader from "@/components/director/directorheader.vue";
+import imgcardlist from "@/components/datacard/imgcardlist.vue";
 import homecover from "@/components/homecover.vue";
 import colume from "@/components/colume.vue";
 export default {

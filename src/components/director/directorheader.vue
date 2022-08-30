@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import directorcolume from "@/components/directorcolume.vue";
+import directorcolume from "@/components/director/directorcolume.vue";
 export default {
   name: "directorheader",
   components: {

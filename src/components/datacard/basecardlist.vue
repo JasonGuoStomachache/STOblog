@@ -1,12 +1,10 @@
 <template>
-  <div class="imgcardlist">
-    <img-card-left v-for="o in 2" :key="o" :article="article"></img-card-left>
-    <img-card-right v-for="p in 2" :key="p" :article="article"></img-card-right>
+  <div class="basecardlist">
+    <base-card v-for="o in 2" :key="o" :article="article"></base-card>
   </div>
 </template>
 <script>
-import imgcard_left from "@/components/imgcard_left";
-import imgcard_right from "@/components/imgcard_right";
+import basecard from "@/components/datacard/basecard.vue";
 export default {
   mounted() {
     [
@@ -16,10 +14,9 @@ export default {
     ] = this.$store.getters.setNowTimes;
     console.log(this.requirepath);
   },
-  name: "imgcardlist",
+  name: "basecardlist",
   components: {
-    "img-card-left": imgcard_left,
-    "img-card-right": imgcard_right,
+    "base-card": basecard,
   },
   data() {
     return {
@@ -45,8 +42,8 @@ export default {
   },
 };
 </script>
-<style socped>
-.imgcardlist {
+<style scoped>
+.basecardlist {
   width: 100%;
 }
 </style>

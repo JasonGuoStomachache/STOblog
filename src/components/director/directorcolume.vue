@@ -11,7 +11,15 @@
       @mouseout="columemouseout"
       @click="redirect(m.linkto)"
       :key="index"
-    ></div>
+    >
+      <span
+        :class="{
+          columeactive: index === currentIndex,
+          notactive: index != currentIndex,
+        }"
+        >{{ m.name }}</span
+      >
+    </div>
   </div>
 </template>
 <script>
@@ -119,7 +127,6 @@ export default {
 <style scoped src="@/assets/css/font.css"></style>
 <style scoped>
 .columeactive {
-  /* background: linear-gradient(to bottom, #f9957e, #f3f5d0); */
   color: #f9957e;
   cursor: pointer;
 }
