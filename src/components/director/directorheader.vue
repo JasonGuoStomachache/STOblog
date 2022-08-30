@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="directorheader"
-    @mouseover="isshow = true"
-    @mouseout="isshow = false"
-  >
+  <div class="directorheader" @mouseover="isshow = true" @mouseout="moveout">
     <div
       class="nav"
       :class="true == isshow || isalwaystop ? 'navBarShowed' : 'navBarHidden'"
@@ -22,6 +18,7 @@ export default {
   data() {
     return {
       isshow: false,
+      isscroll: false,
     };
   },
   props: {
@@ -39,7 +36,14 @@ export default {
       //  当滚动超过 90 时，实现吸顶效果
       if (scrollY > 90) {
         this.isshow = true;
+        this.isscroll = true;
       } else {
+        this.isshow = false;
+        this.isscroll = false;
+      }
+    },
+    moveout() {
+      if (!this.isscroll) {
         this.isshow = false;
       }
     },
