@@ -4,7 +4,13 @@
     :style="{
       backgroundImage: 'url(' + info.imgsrc + ')',
     }"
-  ></div>
+  >
+    <router-link :to="info.linkto">
+      <div class="content">
+        {{ info.name }}
+      </div>
+    </router-link>
+  </div>
 </template>
 <script>
 export default {
@@ -29,5 +35,16 @@ export default {
   border-radius: 15px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.content {
+  width: v-bind(divheight);
+  height: v-bind(divheight);
+  line-height: v-bind(divheight);
+  color: #7b7b7b;
+  font-size: 25px;
+}
+
+.content:hover {
+  color: #f9957e;
 }
 </style>
