@@ -40,4 +40,8 @@ export default {
   font-size: 18px;
   font-weight: 600;
 }
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+}
 </style>

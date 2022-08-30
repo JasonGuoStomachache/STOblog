@@ -34,14 +34,18 @@ export default {
 .home {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 .mainbody {
   background-color: white;
-  margin: 0 25% 0 25%;
   height: 2000px;
-  width: 50%;
+  width: 1000px;
   display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 </style>
