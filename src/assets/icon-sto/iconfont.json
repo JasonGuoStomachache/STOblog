@@ -1,0 +1,44 @@
+{
+  "id": "3618691",
+  "name": "stoblog",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-sto",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11488085",
+      "name": "on time shipment",
+      "font_class": "ontimeshipment",
+      "unicode": "e75a",
+      "unicode_decimal": 59226
+    },
+    {
+      "icon_id": "24481569",
+      "name": "authority",
+      "font_class": "authority",
+      "unicode": "e6b8",
+      "unicode_decimal": 59064
+    },
+    {
+      "icon_id": "1199214",
+      "name": "ice-cream",
+      "font_class": "ice-cream",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
+      "icon_id": "11474220",
+      "name": "bussiness-man",
+      "font_class": "bussiness-man",
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    },
+    {
+      "icon_id": "12011697",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e7b3",
+      "unicode_decimal": 59315
+    }
+  ]
+}

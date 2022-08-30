@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3618691 */
+  src: url('iconfont.woff2?t=1661838979230') format('woff2'),
+       url('iconfont.woff?t=1661838979230') format('woff'),
+       url('iconfont.ttf?t=1661838979230') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-stoontimeshipment:before {
+  content: "\e75a";
+}
+
+.icon-stoauthority:before {
+  content: "\e6b8";
+}
+
+.icon-stoice-cream:before {
+  content: "\e6ff";
+}
+
+.icon-stobussiness-man:before {
+  content: "\e6ef";
+}
+
+.icon-stosearch:before {
+  content: "\e7b3";
+}
+
