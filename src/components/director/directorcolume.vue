@@ -9,10 +9,12 @@
       }"
       @mouseover="currentIndex = index"
       @mouseout="currentIndex = 999"
-      @click="redirect(m.linkto)"
       :key="index"
     >
-      <span v-if="m.isdropdown">
+      <span
+        v-if="m.isdropdown"
+        style="width: 100%; height: 100%; line-height: 76px"
+      >
         <drop-down
           :dataList="m.childrencolume"
           @inul="currentindex = index"
@@ -23,6 +25,7 @@
               columeactive: index === currentIndex,
               notactive: index != currentIndex,
             }"
+            @click="redirect(m.linkto)"
           >
             <svg class="icon" aria-hidden="true">
               <use :xlink:href="m.iconclass"></use>
@@ -38,6 +41,7 @@
           columeactive: index === currentIndex,
           notactive: index != currentIndex,
         }"
+        @click="redirect(m.linkto)"
       >
         <svg class="icon" aria-hidden="true">
           <use :xlink:href="m.iconclass"></use>
@@ -50,7 +54,6 @@
 <script>
 import dropdown from "@/components/tool/dropdown.vue";
 export default {
-  components: { dropdown },
   name: "directorcolume",
   components: {
     "drop-down": dropdown,

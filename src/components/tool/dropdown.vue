@@ -63,7 +63,6 @@ export default {
 <style scoped>
 .dropdown-list {
   display: inline-block;
-
   position: relative;
 }
 
