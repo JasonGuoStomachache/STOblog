@@ -9,7 +9,7 @@
       @outul="currentindex = 999"
     >
       <svg
-        class="icon user"
+        class="icon"
         aria-hidden="true"
         @mousemove="currentindex = 100"
         @mouseout="currentindex = 999"

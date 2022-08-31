@@ -7,17 +7,41 @@
         columeactive: index === currentIndex,
         notactive: index != currentIndex,
       }"
-      @mouseover="columemouseover(index)"
-      @mouseout="columemouseout"
+      @mouseover="currentIndex = index"
+      @mouseout="currentIndex = 999"
       @click="redirect(m.linkto)"
       :key="index"
     >
+      <span v-if="m.isdropdown">
+        <drop-down
+          :dataList="m.childrencolume"
+          @inul="currentindex = index"
+          @outul="currentindex = 999"
+        >
+          <span
+            :class="{
+              columeactive: index === currentIndex,
+              notactive: index != currentIndex,
+            }"
+          >
+            <svg class="icon" aria-hidden="true">
+              <use :xlink:href="m.iconclass"></use>
+            </svg>
+            {{ m.name }}
+          </span>
+        </drop-down>
+      </span>
+
       <span
+        v-else
         :class="{
           columeactive: index === currentIndex,
           notactive: index != currentIndex,
         }"
       >
+        <svg class="icon" aria-hidden="true">
+          <use :xlink:href="m.iconclass"></use>
+        </svg>
         {{ m.name }}
       </span>
     </div>
@@ -26,8 +50,9 @@
 <script>
 import dropdown from "@/components/tool/dropdown.vue";
 export default {
+  components: { dropdown },
   name: "directorcolume",
-  component: {
+  components: {
     "drop-down": dropdown,
   },
   data() {
@@ -36,13 +61,13 @@ export default {
       directorinfo: [
         {
           name: "主页",
-          iconclass: "HomeFilled",
+          iconclass: "#icon-stohome",
           linkto: "/home",
           isdropdown: false,
         },
         {
           name: "归档",
-          iconclass: "List",
+          iconclass: "#icon-stomenu2",
           linkto: "/catalog",
           isdropdown: true,
           childrencolume: [
@@ -75,41 +100,46 @@ export default {
         },
         {
           name: "收集",
-          iconclass: "Management",
+          iconclass: "#icon-stolocaloffer",
           linkto: "/collection",
           isdropdown: true,
           childrencolume: [
             {
               name: "极客",
               linkto: "/geek",
+              id: 0,
             },
             {
               name: "文摘",
               linkto: "/bookreview",
+              id: 1,
             },
             {
               name: "影评",
               linkto: "/filmreview",
+              id: 2,
             },
             {
               name: "随想",
               linkto: "/comprehension",
+              id: 3,
             },
             {
               name: "笔记",
               linkto: "/notes",
+              id: 4,
             },
           ],
         },
         {
           name: "开发手册",
-          iconclass: "InfoFilled",
+          iconclass: "#icon-stopaper",
           linkto: "/programming",
           isdropdown: false,
         },
         {
           name: "关于",
-          iconclass: "Avatar",
+          iconclass: "#icon-stoauthority",
           linkto: "/about",
           isdropdown: false,
         },
@@ -120,22 +150,19 @@ export default {
     redirect(to) {
       this.$router.push(to);
     },
-    columemouseover(index) {
-      this.currentIndex = index;
-    },
-    columemouseout() {
-      this.currentIndex = 999;
-    },
   },
 };
 </script>
-<style scoped src="@/assets/css/font.css"></style>
 <style scoped>
 .columeactive {
+  font-weight: 600;
+  font-size: 20px;
   color: #f9957e;
   cursor: pointer;
 }
 .notactive {
+  font-weight: 600;
+  font-size: 20px;
   color: #7b7b7b;
 }
 
@@ -152,5 +179,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.icon {
+  color: inherit;
 }
 </style>

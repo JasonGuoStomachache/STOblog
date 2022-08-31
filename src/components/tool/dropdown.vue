@@ -85,6 +85,7 @@ export default {
   border: solid 1px #f1f1f1;
   border-radius: 8px;
   overflow: hidden;
+  color: #7b7b7b;
 }
 
 .dropdown-list ul li {

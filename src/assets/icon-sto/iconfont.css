@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3618691 */
-  src: url('iconfont.woff2?t=1661838979230') format('woff2'),
-       url('iconfont.woff?t=1661838979230') format('woff'),
-       url('iconfont.ttf?t=1661838979230') format('truetype');
+  src: url('iconfont.woff2?t=1661950664217') format('woff2'),
+       url('iconfont.woff?t=1661950664217') format('woff'),
+       url('iconfont.ttf?t=1661950664217') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,62 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-stopaper:before {
+  content: "\e60a";
+}
+
+.icon-stoarrowup:before {
+  content: "\e606";
+}
+
+.icon-stoarrowdown:before {
+  content: "\e608";
+}
+
+.icon-stoeditor:before {
+  content: "\e60b";
+}
+
+.icon-stoshare:before {
+  content: "\e60f";
+}
+
+.icon-stochakan:before {
+  content: "\e612";
+}
+
+.icon-stomenu:before {
+  content: "\e614";
+}
+
+.icon-stospeechbubble:before {
+  content: "\e619";
+}
+
+.icon-stocalendar2:before {
+  content: "\e61a";
+}
+
+.icon-stoarrowleft:before {
+  content: "\e61b";
+}
+
+.icon-stoarrowright:before {
+  content: "\e61c";
+}
+
+.icon-stolocaloffer:before {
+  content: "\e61d";
+}
+
+.icon-stohome:before {
+  content: "\e621";
+}
+
+.icon-stomenu2:before {
+  content: "\e622";
 }
 
 .icon-stoontimeshipment:before {
