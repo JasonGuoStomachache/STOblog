@@ -5,7 +5,7 @@
     @mouseout="onDplOut($event)"
   >
     <span><slot></slot></span>
-    <ul v-dpl>
+    <ul v-show="false" @mousemove="mouseinul" @mouseout="mouseoutul">
       <li
         v-for="item in dataList"
         :key="item.id"
@@ -36,13 +36,6 @@ export default {
       },
     },
   },
-  directives: {
-    dpl: {
-      bind(el) {
-        el.style.display = "none";
-      },
-    },
-  },
   methods: {
     onDplOver(event) {
       let ul = event.currentTarget.childNodes[1];
@@ -57,6 +50,12 @@ export default {
       path[1].style.display = "none";
       this.$router.push(linkto);
     },
+    mouseinul() {
+      this.$emit("inul", {});
+    },
+    mouseoutul() {
+      this.$emit("outul", {});
+    },
   },
 };
 </script>
@@ -64,7 +63,7 @@ export default {
 <style scoped>
 .dropdown-list {
   display: inline-block;
-  min-width: 100px;
+
   position: relative;
 }
 
@@ -76,9 +75,10 @@ export default {
 }
 
 .dropdown-list ul {
+  min-width: 100px;
   position: absolute;
   top: 40px;
-  left: 0;
+  left: -27px;
   width: 100%;
   margin: 0;
   padding: 0;

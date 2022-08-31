@@ -3,8 +3,21 @@
     <svg class="icon search" aria-hidden="true">
       <use xlink:href="#icon-stosearch"></use>
     </svg>
-    <drop-down :dataList="userinfo">
-      <svg class="icon user" aria-hidden="true">
+    <drop-down
+      :dataList="info"
+      @inul="currentindex = 100"
+      @outul="currentindex = 999"
+    >
+      <svg
+        class="icon user"
+        aria-hidden="true"
+        @mousemove="currentindex = 100"
+        @mouseout="currentindex = 999"
+        :class="{
+          isactive: 100 === currentindex,
+          notactive: 100 !== currentindex,
+        }"
+      >
         <use xlink:href="#icon-stobussiness-man"></use>
       </svg>
     </drop-down>
@@ -19,7 +32,7 @@ export default {
   },
   data() {
     return {
-      userinfo: [
+      info: [
         {
           name: "账户",
           linkto: "/profile",
@@ -46,23 +59,25 @@ export default {
           id: 4,
         },
       ],
+      currentindex: 999,
     };
   },
 };
 </script>
 <style scoped>
-.user:hover,
-.search:hover {
+.search:hover,
+.isactive {
   color: #f9957e;
 }
-.user,
-.search {
+.search,
+.notactive {
   color: #7b7b7b;
 }
+
 .directorprofile {
   position: fixed;
   top: 0px;
-  right: 0px;
+  right: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;

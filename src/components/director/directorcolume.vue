@@ -17,14 +17,19 @@
           columeactive: index === currentIndex,
           notactive: index != currentIndex,
         }"
-        >{{ m.name }}</span
       >
+        {{ m.name }}
+      </span>
     </div>
   </div>
 </template>
 <script>
+import dropdown from "@/components/tool/dropdown.vue";
 export default {
   name: "directorcolume",
+  component: {
+    "drop-down": dropdown,
+  },
   data() {
     return {
       currentIndex: 999,
