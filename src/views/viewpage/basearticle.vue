@@ -13,8 +13,14 @@ import pagecover from "@/components/pagecover.vue";
 import basecard from "@/components/datacard/basecard.vue";
 export default {
   name: "basearticle",
-  mounted(){
-    this.requireMarkdown(this.$route.params.articleid)
+  mounted() {
+    this.requireMarkdown(this.$route.params.articleid);
+    [
+      this.article.articletime.nowDate,
+      this.article.articletime.nowTime,
+      this.article.articletime.nowWeek,
+    ] = this.$store.getters.setNowTimes;
+    console.log(this.requirepath);
   },
   components: {
     "director-header": directorheader,
@@ -46,9 +52,9 @@ export default {
   },
   methods: {
     requireMarkdown(articleid) {
-      await import("/markdown/"+articleid+".md").then(mymodule=>{
-        this.markdownvalue = mymodule;
-      })
+      // await import("/markdown/"+articleid+".md").then(mymodule=>{
+      //   this.markdownvalue = mymodule;
+      // })
     },
   },
 };

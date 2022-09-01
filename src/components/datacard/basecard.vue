@@ -10,7 +10,11 @@
       </div>
       <div class="cardright">
         <div class="cardtitle">
-          <p class="articletitile">{{ article.articletitile }}</p>
+          <p class="articletitile">
+            <router-link :to="'/view/' + article.linkto">{{
+              article.articletitile
+            }}</router-link>
+          </p>
           <div class="articleinfo">
             <p>
               <svg class="icon" aria-hidden="true">
@@ -118,7 +122,9 @@ export default {
   text-align: left;
 }
 .articletitile {
+  font-weight: 600;
   font-size: 25px;
+  color: #7b7b7b;
   width: 75%;
   padding: 0 2%;
 }
@@ -136,12 +142,6 @@ export default {
   font-weight: 100;
   color: #bebebe;
 }
-/* .articletime {
-  text-align: right;
-  font-size: 12px;
-  font-weight: 100;
-  color: #bebebe;
-} */
 
 .cardintroduction {
   width: 100%;

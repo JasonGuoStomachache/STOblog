@@ -29,6 +29,7 @@ export default {
         },
         articleauthor: "Stomachache",
         colume: "geek",
+        linkto: "00000010",
         articleintroduction:
           "一直以来，习惯在 flex 布局中使用 gap这个属性设置间距，一直以来也都是在最新的 Chrome上调试，所以从来没有想在 flex gap在其他浏览器上存在兼容性问题。最近看了一下文档才反应过来，gap原来只是 grid 布局的属性，虽然近些年来主流浏览器都已经支持了",
         articlecover: "/backgroundimgs/03.png",

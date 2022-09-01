@@ -22,7 +22,6 @@ export default {
   },
 };
 </script>
-<style scoped src="@/assets/css/font.css"></style>
 <style scoped>
 .colume {
   width: 100%;
@@ -37,8 +36,9 @@ export default {
   align-items: center;
   justify-content: space-between;
   margin: 10px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
+  color: #7b7b7b;
 }
 .icon {
   width: 1.5em;
