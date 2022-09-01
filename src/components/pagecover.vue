@@ -25,7 +25,7 @@ export default {
 <style scoped>
 .coverimg {
   width: 100%;
-  height: 300px;
+  height: 400px;
   background-repeat: no-repeat;
   background-size: cover;
 }
