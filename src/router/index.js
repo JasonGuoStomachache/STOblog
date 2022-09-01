@@ -10,6 +10,7 @@ import bookreview from "@/views/catalog/bookreview.vue";
 import filmreview from "@/views/catalog/filmreview.vue";
 import comprehension from "@/views/catalog/comprehension.vue";
 import notes from "@/views/catalog/notes.vue";
+import basearticle from "@/views/viewpage/basearticle.vue";
 
 const routes = [
   {
@@ -70,6 +71,10 @@ const routes = [
         path: "/notes",
         name: "notes",
         component: notes,
+      },
+      {
+        path: "/view/:articleid",
+        component: basearticle,
       },
     ],
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="catalog">
-    <director-header :isalwaystop="alwaystop"></director-header>
+    <director-header isalwaystop="true"></director-header>
     <page-cover></page-cover>
     <div class="mainbody">
       <colume :columetitle="colume_01"
@@ -22,7 +22,6 @@ export default {
   name: "catalog",
   data() {
     return {
-      alwaystop: true,
       colume_01: "目录",
       colume_02: "文章归档",
     };
