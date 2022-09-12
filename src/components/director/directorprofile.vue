@@ -3,6 +3,14 @@
     <svg class="icon search" aria-hidden="true">
       <use xlink:href="#icon-stosearch"></use>
     </svg>
+    <router-link to="/writeblog"
+      ><svg
+        class="icon search"
+        aria-hidden="true"
+        style="width: 2.1em; height: 2.1em"
+      >
+        <use xlink:href="#icon-stochuangzuo"></use></svg
+    ></router-link>
     <drop-down
       :dataList="info"
       @inul="currentindex = 100"

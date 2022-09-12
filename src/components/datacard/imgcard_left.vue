@@ -60,6 +60,7 @@ export default {
   methods: {},
 };
 </script>
+<style scoped src="@/assets/css/font.css"></style>
 <style scoped>
 .imgcard_left {
   display: flex;

@@ -11,6 +11,7 @@ import filmreview from "@/views/catalog/filmreview.vue";
 import comprehension from "@/views/catalog/comprehension.vue";
 import notes from "@/views/catalog/notes.vue";
 import basearticle from "@/views/viewpage/basearticle.vue";
+import addblog from "@/views/addblog.vue";
 
 const routes = [
   {
@@ -75,6 +76,10 @@ const routes = [
       {
         path: "/view/:articleid",
         component: basearticle,
+      },
+      {
+        path: "/writeblog",
+        component: addblog,
       },
     ],
   },
