@@ -12,11 +12,11 @@
       :key="index"
     >
       <span
-        v-if="m.isdropdown"
+        v-if="m.isDropdown"
         style="width: 100%; height: 100%; line-height: 76px"
       >
         <drop-down
-          :dataList="m.childrencolume"
+          :dataList="m.directorColumeChildrens"
           @inul="currentindex = index"
           @outul="currentindex = 999"
         >
@@ -25,10 +25,10 @@
               columeactive: index === currentIndex,
               notactive: index != currentIndex,
             }"
-            @click="redirect(m.linkto)"
+            @click="redirect(m.linkTo)"
           >
             <svg class="icon" aria-hidden="true">
-              <use :xlink:href="m.iconclass"></use>
+              <use :xlink:href="m.iconClass"></use>
             </svg>
             {{ m.name }}
           </span>
@@ -41,10 +41,10 @@
           columeactive: index === currentIndex,
           notactive: index != currentIndex,
         }"
-        @click="redirect(m.linkto)"
+        @click="redirect(m.linkTo)"
       >
         <svg class="icon" aria-hidden="true">
-          <use :xlink:href="m.iconclass"></use>
+          <use :xlink:href="m.iconClass"></use>
         </svg>
         {{ m.name }}
       </span>
@@ -53,100 +53,21 @@
 </template>
 <script>
 import dropdown from "@/components/tool/dropdown.vue";
+import { get } from "@/network/request.js";
 export default {
   name: "directorcolume",
+  mounted() {
+    get("/getdirectorcolumes").then((response) => {
+      this.directorinfo = response.data;
+    });
+  },
   components: {
     "drop-down": dropdown,
   },
   data() {
     return {
       currentIndex: 999,
-      directorinfo: [
-        {
-          name: "主页",
-          iconclass: "#icon-stohome",
-          linkto: "/home",
-          isdropdown: false,
-        },
-        {
-          name: "归档",
-          iconclass: "#icon-stomenu2",
-          linkto: "/catalog",
-          isdropdown: true,
-          childrencolume: [
-            {
-              name: "极客",
-              linkto: "/geek",
-              id: 0,
-            },
-            {
-              name: "文摘",
-              linkto: "/bookreview",
-              id: 1,
-            },
-            {
-              name: "影评",
-              linkto: "/filmreview",
-              id: 2,
-            },
-            {
-              name: "随想",
-              linkto: "/comprehension",
-              id: 3,
-            },
-            {
-              name: "笔记",
-              linkto: "/notes",
-              id: 4,
-            },
-          ],
-        },
-        {
-          name: "收集",
-          iconclass: "#icon-stolocaloffer",
-          linkto: "/collection",
-          isdropdown: true,
-          childrencolume: [
-            {
-              name: "极客",
-              linkto: "/geek",
-              id: 0,
-            },
-            {
-              name: "文摘",
-              linkto: "/bookreview",
-              id: 1,
-            },
-            {
-              name: "影评",
-              linkto: "/filmreview",
-              id: 2,
-            },
-            {
-              name: "随想",
-              linkto: "/comprehension",
-              id: 3,
-            },
-            {
-              name: "笔记",
-              linkto: "/notes",
-              id: 4,
-            },
-          ],
-        },
-        {
-          name: "开发手册",
-          iconclass: "#icon-stopaper",
-          linkto: "/programming",
-          isdropdown: false,
-        },
-        {
-          name: "关于",
-          iconclass: "#icon-stoauthority",
-          linkto: "/about",
-          isdropdown: false,
-        },
-      ],
+      directorinfo: [],
     };
   },
   methods: {

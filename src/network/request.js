@@ -1,19 +1,24 @@
-import { Axios } from "axios";
-import { reject, resolve } from "core-js/fn/promise";
+import Axios from "axios";
 
-Axios.interceptors.request.use((config) => {
-  config.headers.Authorization = window.sessionStorage.getItem("token");
-  return config;
-});
+// Axios.interceptors.request.use((config) => {
+//   config.headers.Authorization = window.sessionStorage.getItem("token");
+//   return config;
+// });
 
 export function post(url, config) {
   const instance = Axios.create({
-    baseURL: "http://localhost:8081/api/private/v1/",
+    baseURL: "http://localhost:8081/",
     timeout: 5000,
   });
   return instance.post(url, config);
 }
-
+export function get(url, config) {
+  const instance = Axios.create({
+    baseURL: "http://localhost:8081/",
+    timeout: 5000,
+  });
+  return instance.get(url, config);
+}
 // export function request(config) {
 //   return new Promise((resolve, reject) => {
 //     const instance = axios.create({
