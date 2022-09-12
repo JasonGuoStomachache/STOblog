@@ -6,7 +6,7 @@
       <colume :columetitle="colume_01">
         <author-card></author-card>
       </colume>
-      <form action="" method="post"></form>
+      <article-form></article-form>
     </div>
   </div>
 </template>
@@ -15,6 +15,7 @@ import directorheader from "@/components/director/directorheader.vue";
 import pagecover from "@/components/pagecover.vue";
 import colume from "@/components/colume.vue";
 import authorcard from "@/components/datacard/authorcard.vue";
+import articleform from "@/components/form/articleform.vue";
 
 export default {
   name: "addblog",
@@ -29,9 +30,11 @@ export default {
     "page-cover": pagecover,
     colume,
     "author-card": authorcard,
+    "article-form": articleform,
   },
 };
 </script>
+<style scoped src="@/assets/css/font.css"></style>
 <style scoped>
 .addblog {
   width: 100%;
