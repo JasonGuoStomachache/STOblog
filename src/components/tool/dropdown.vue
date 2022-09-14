@@ -9,7 +9,7 @@
       <li
         v-for="item in dataList"
         :key="item.id"
-        @click="onLiClick(item.linkto)"
+        @click="onLiClick(item.linkTo)"
       >
         {{ item.name }}
       </li>

@@ -8,6 +8,7 @@
       </colume>
       <article-form></article-form>
     </div>
+    <div class="tag"><span style="height: 1000px">1000px</span></div>
   </div>
 </template>
 <script>
@@ -49,6 +50,15 @@ export default {
   background-color: white;
   height: 2000px;
   width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.tag {
+  background-color: antiquewhite;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
