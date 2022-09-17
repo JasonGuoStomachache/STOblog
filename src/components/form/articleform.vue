@@ -11,9 +11,9 @@
         style="width: 100%"
       >
         <el-col :span="24">
-          <el-form-item label="博客标题" prop="articleName">
+          <el-form-item label="博客标题" prop="articleTitle">
             <el-input
-              v-model="formData.articleName"
+              v-model="formData.articleTitle"
               placeholder="请输入博客标题"
               :maxlength="30"
               clearable
@@ -160,14 +160,14 @@ export default {
       articleImgset: [],
       articleFile: null,
       formData: {
-        articleName: "",
+        articleTitle: "",
         articleIntroduction: "",
         articleType: "",
         articleFormat: "",
       },
 
       rules: {
-        articleName: [
+        articleTitle: [
           {
             required: true,
             message: "请输入博客标题",
@@ -245,6 +245,7 @@ export default {
   created() {},
   mounted() {
     this.userInfo = this.$store.state.user;
+    console.log(this.$store.getters.getNowTimeforall);
   },
   methods: {
     submitForm() {
@@ -304,18 +305,17 @@ export default {
     postAppendix() {
       let formData = new FormData();
       formData.append("articleInfo", this.userInfo.userID);
-      formData.append("articleInfo", this.formData.articleName);
+      formData.append("articleInfo", this.formData.articleTitle);
       formData.append("articleInfo", this.formData.articleIntroduction);
       formData.append("articleInfo", this.formData.articleType);
       formData.append("articleInfo", this.formData.articleFormat);
       formData.append("articleInfo", this.$store.getters.getNowTimeforall);
-      console.log(this.$store.getters.getNowTimeforall);
       formData.append("articleCover", this.articleCover);
+      formData.append("articleFile", this.articleFile);
       let imgset = this.articleImgset;
       for (let index = 0; index < this.articleImgset.length; index++) {
         formData.append("articleImgSet", imgset[index]);
       }
-      formData.append("articleFile", this.articleFile);
       post("/postarticleappendix", formData)
         .then((response) => {
           if (response.status == "200") {

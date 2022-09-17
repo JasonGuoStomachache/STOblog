@@ -53,7 +53,7 @@ export default createStore({
     },
     getNowTimeforall(state, getters) {
       let [nowDate, nowTime, nowWeek] = getters.getNowTimes;
-      return nowDate + ";" + nowTime + ";" + nowWeek;
+      return nowDate + " " + nowTime;
     },
   },
   mutations: {},
