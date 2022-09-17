@@ -250,20 +250,7 @@ export default {
     submitForm() {
       this.$refs["postnewblog"].validate((valid) => {
         if (!valid) return;
-        // TODO 提交表单
-        // console.log(this.formData);
-        // console.log(this.articleImgset);
-        // console.log(this.articleCover);
-        // console.log(this.articleFile);
         this.postAppendix();
-        // Axios({
-        //   url: "http://localhost:8081/testnewarticle",
-        //   method: "post",
-        //   data: this.formData,
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // });
       });
     },
     resetForm() {
@@ -321,6 +308,8 @@ export default {
       formData.append("articleInfo", this.formData.articleIntroduction);
       formData.append("articleInfo", this.formData.articleType);
       formData.append("articleInfo", this.formData.articleFormat);
+      formData.append("articleInfo", this.$store.getters.getNowTimeforall);
+      console.log(this.$store.getters.getNowTimeforall);
       formData.append("articleCover", this.articleCover);
       let imgset = this.articleImgset;
       for (let index = 0; index < this.articleImgset.length; index++) {

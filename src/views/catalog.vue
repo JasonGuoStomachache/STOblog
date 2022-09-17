@@ -4,7 +4,7 @@
     <page-cover></page-cover>
     <div class="mainbody">
       <colume :columetitle="colume_01"
-        ><row-card-list divheight="150px" requirepath="nopath"></row-card-list
+        ><row-card-list divheight="150px" requirepath="1"></row-card-list
       ></colume>
       <colume :columetitle="colume_02"
         ><base-card-list requirepath="nopath"></base-card-list

@@ -14,9 +14,8 @@ import { get } from "@/network/request.js";
 export default {
   name: "rowcardlist",
   mounted() {
-    get("/getpartitioncolume?id=1").then((response) => {
+    get("/getpartitioncolume?id=" + this.requirepath).then((response) => {
       this.info = response.data;
-      console.log(response.data);
     });
   },
   components: {

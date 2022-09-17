@@ -51,9 +51,9 @@ export default createStore({
       let nowWeek = week;
       return [nowDate, nowTime, nowWeek];
     },
-    getNowTimeforall() {
-      let [nowDate, nowTime, nowWeek] = this.$store.getters.setNowTimes;
-      return nowDate + " " + nowTime + " " + nowWeek;
+    getNowTimeforall(state, getters) {
+      let [nowDate, nowTime, nowWeek] = getters.getNowTimes;
+      return nowDate + ";" + nowTime + ";" + nowWeek;
     },
   },
   mutations: {},
