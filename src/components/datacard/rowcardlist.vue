@@ -10,45 +10,21 @@
 </template>
 <script>
 import squarecard from "@/components/datacard/squarecard.vue";
+import { get } from "@/network/request.js";
 export default {
   name: "rowcardlist",
+  mounted() {
+    get("/getpartitioncolume?id=1").then((response) => {
+      this.info = response.data;
+      console.log(response.data);
+    });
+  },
   components: {
     "square-card": squarecard,
   },
   data() {
     return {
-      info: [
-        {
-          name: "极客",
-          linkto: "/geek",
-          imgsrc: "/backgroundimgs/geek.png",
-          id: 0,
-        },
-        {
-          name: "文摘",
-          linkto: "/bookreview",
-          imgsrc: "/backgroundimgs/geek.png",
-          id: 1,
-        },
-        {
-          name: "影评",
-          linkto: "/filmreview",
-          imgsrc: "/backgroundimgs/geek.png",
-          id: 2,
-        },
-        {
-          name: "随想",
-          linkto: "/comprehension",
-          imgsrc: "/backgroundimgs/geek.png",
-          id: 3,
-        },
-        {
-          name: "笔记",
-          linkto: "/notes",
-          imgsrc: "/backgroundimgs/geek.png",
-          id: 4,
-        },
-      ],
+      info: [],
     };
   },
   props: {

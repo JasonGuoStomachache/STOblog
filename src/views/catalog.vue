@@ -1,6 +1,6 @@
 <template>
   <div class="catalog">
-    <director-header isalwaystop="true"></director-header>
+    <director-header :isalwaystop="isalwaystop"></director-header>
     <page-cover></page-cover>
     <div class="mainbody">
       <colume :columetitle="colume_01"
@@ -24,6 +24,7 @@ export default {
     return {
       colume_01: "目录",
       colume_02: "文章归档",
+      isalwaystop: true,
     };
   },
   components: {

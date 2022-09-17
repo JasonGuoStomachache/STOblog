@@ -2,10 +2,10 @@
   <div
     class="squarecard"
     :style="{
-      backgroundImage: 'url(' + info.imgsrc + ')',
+      backgroundImage: 'url(' + info.imgSrc + ')',
     }"
   >
-    <router-link :to="info.linkto">
+    <router-link :to="info.linkTo">
       <div class="content">
         {{ info.name }}
       </div>

@@ -23,9 +23,9 @@
           </el-form-item>
         </el-col>
         <el-col :span="24">
-          <el-form-item label="内容简介：" prop="articleInfo">
+          <el-form-item label="内容简介：" prop="articleIntroduction">
             <el-input
-              v-model="formData.articleInfo"
+              v-model="formData.articleIntroduction"
               type="textarea"
               placeholder="请输入内容简介："
               :maxlength="300"
@@ -130,10 +130,10 @@
               </el-upload>
             </el-form-item>
           </el-col>
-          <el-col :span="6" :offset="2" class="jiuzhong">
+          <el-col :span="6" :offset="2" class="centeredFlexHorizontal">
             <el-form-item
               size="large"
-              class="jiuzhong"
+              class="centeredFlexHorizontal"
               style="margin: 0; padding: 0"
             >
               <el-button type="primary" @click="submitForm">提交</el-button>
@@ -155,15 +155,17 @@ export default {
   props: [],
   data() {
     return {
+      userInfo: null,
       articleCover: null,
       articleImgset: [],
       articleFile: null,
       formData: {
-        articleName: undefined,
-        articleInfo: undefined,
-        articleType: undefined,
-        articleFormat: undefined,
+        articleName: "",
+        articleIntroduction: "",
+        articleType: "",
+        articleFormat: "",
       },
+
       rules: {
         articleName: [
           {
@@ -172,7 +174,7 @@ export default {
             trigger: "blur",
           },
         ],
-        articleInfo: [
+        articleIntroduction: [
           {
             required: true,
             message: "请输入内容简介：",
@@ -194,11 +196,11 @@ export default {
           },
         ],
       },
-      articleCoverAction: "http://localhost:8081/postnewblogcover",
+      articleCoverAction: "",
       articleCoverfileList: [],
-      articleImgsetAction: "https://jsonplaceholder.typicode.com/posts/",
+      articleImgsetAction: "",
       articleImgsetfileList: [],
-      articleFileAction: "https://jsonplaceholder.typicode.com/posts/",
+      articleFileAction: "",
       articleFilefileList: [],
       articleTypeOptions: [
         {
@@ -241,7 +243,9 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    this.userInfo = this.$store.state.user;
+  },
   methods: {
     submitForm() {
       this.$refs["postnewblog"].validate((valid) => {
@@ -252,14 +256,14 @@ export default {
         // console.log(this.articleCover);
         // console.log(this.articleFile);
         this.postAppendix();
-        Axios({
-          url: "http://localhost:8081/testnewarticle",
-          method: "post",
-          data: this.formData,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        // Axios({
+        //   url: "http://localhost:8081/testnewarticle",
+        //   method: "post",
+        //   data: this.formData,
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // });
       });
     },
     resetForm() {
@@ -311,15 +315,28 @@ export default {
       this.articleFile = uploadFile.raw;
     },
     postAppendix() {
-      var formData = new FormData();
+      let formData = new FormData();
+      formData.append("articleInfo", this.userInfo.userID);
+      formData.append("articleInfo", this.formData.articleName);
+      formData.append("articleInfo", this.formData.articleIntroduction);
+      formData.append("articleInfo", this.formData.articleType);
+      formData.append("articleInfo", this.formData.articleFormat);
       formData.append("articleCover", this.articleCover);
-      var imgset = this.articleImgset;
+      let imgset = this.articleImgset;
       for (let index = 0; index < this.articleImgset.length; index++) {
-        console.log(imgset[index]);
         formData.append("articleImgSet", imgset[index]);
       }
       formData.append("articleFile", this.articleFile);
-      post("/postarticleappendix", formData);
+      post("/postarticleappendix", formData)
+        .then((response) => {
+          if (response.status == "200") {
+            alert("博客已成功提交！即将跳转至归档页面。");
+            this.$router.push("/catalog");
+          }
+        })
+        .catch((err) => {
+          alert("提交出错，错误信息：" + err.message);
+        });
     },
   },
 };
@@ -331,10 +348,5 @@ export default {
 
 .articleform {
   width: 100%;
-}
-.jiuzhong {
-  display: flex;
-  justify-content: center; /*主轴上居中*/
-  align-items: center; /*侧轴上居中*/
 }
 </style>

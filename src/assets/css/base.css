@@ -34,3 +34,16 @@ abbr {
   fill: currentColor;
   overflow: hidden;
 }
+
+.centeredFlexHorizontal {
+  display: flex;
+  justify-content: center; /*主轴上居中*/
+  align-items: center; /*侧轴上居中*/
+}
+
+.CenteredFlexvertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /*主轴上居中*/
+  align-items: center; /*侧轴上居中*/
+}

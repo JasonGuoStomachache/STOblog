@@ -11,7 +11,7 @@ export default {
       this.article.articletime.nowDate,
       this.article.articletime.nowTime,
       this.article.articletime.nowWeek,
-    ] = this.$store.getters.setNowTimes;
+    ] = this.$store.getters.getNowTimes;
     console.log(this.requirepath);
   },
   name: "basecardlist",

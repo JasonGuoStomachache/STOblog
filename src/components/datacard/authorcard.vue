@@ -2,7 +2,11 @@
   <div class="authorcard">
     <div class="mycard">
       <div class="cardleft">
-        <img class="authorcardimg" alt="loading ! ! !" :src="avtorpath" />
+        <img
+          class="authorcardimg"
+          alt="loading ! ! !"
+          :src="userInfo.avtorpath"
+        />
       </div>
       <div class="cardright">
         <div class="cardtitle">
@@ -10,7 +14,7 @@
             <!-- <router-link :to="'/view/' + article.linkto">{{
               article.articletitile
             }}</router-link> -->
-            AuthorName：{{ nickname }}
+            AuthorName：{{ userInfo.nickname }}
           </p>
 
           <div class="writesvgimg">
@@ -27,25 +31,25 @@
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-stopaper"></use></svg
               >&nbsp;&nbsp;博客数量&nbsp;
-              {{ blogcount }}
+              {{ userInfo.blogcount }}
             </p>
             <p>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-stolocaloffer"></use></svg
               >&nbsp;&nbsp;集锦数量&nbsp;
-              {{ collectioncount }}
+              {{ userInfo.collectioncount }}
             </p>
             <p>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-stodaohangdizhi"></use></svg
-              >&nbsp;&nbsp;{{ ip }}
+              >&nbsp;&nbsp;{{ userInfo.ip }}
             </p>
           </div>
         </div>
         <hr class="horizonerow" style="width: 100%" />
         <div class="cardintroduction">
           <p class="authormotto">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ authormotto }}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ userInfo.authormotto }}
           </p>
         </div>
       </div>
@@ -58,13 +62,7 @@ export default {
   name: "authorcard",
   data() {
     return {
-      nickname: "Stomchache",
-      avtorpath: "/backgroundimgs/03.png",
-      authormotto:
-        "如果怯懦是最大的罪恶，那么，狗在这方面大概没有什么可责备的。这只勇敢的狗，它唯一所惧怕的就是雷雨。不过，这有什么办法呢?谁要是爱，谁就应该与他所爱的人分担相同的遭遇。——布尔加科夫《大师和玛格丽特》",
-      blogcount: 23,
-      collectioncount: 20,
-      ip: "陕西西安",
+      userInfo: this.$store.state.user,
     };
   },
   methods: {},

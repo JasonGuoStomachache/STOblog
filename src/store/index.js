@@ -1,9 +1,20 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {},
+  state: {
+    user: {
+      userID: "00000010",
+      nickname: "Stomchache",
+      avtorpath: "/backgroundimgs/03.png",
+      authormotto:
+        "如果怯懦是最大的罪恶，那么，狗在这方面大概没有什么可责备的。这只勇敢的狗，它唯一所惧怕的就是雷雨。不过，这有什么办法呢?谁要是爱，谁就应该与他所爱的人分担相同的遭遇。——布尔加科夫《大师和玛格丽特》",
+      blogcount: 23,
+      collectioncount: 20,
+      ip: "陕西西安",
+    },
+  },
   getters: {
-    setNowTimes(state) {
+    getNowTimes(state) {
       //获取当前时间
       let myDate = new Date();
       let wk = myDate.getDay();
@@ -39,6 +50,10 @@ export default createStore({
       let nowTime = hou + ":" + min + ":" + sec;
       let nowWeek = week;
       return [nowDate, nowTime, nowWeek];
+    },
+    getNowTimeforall() {
+      let [nowDate, nowTime, nowWeek] = this.$store.getters.setNowTimes;
+      return nowDate + " " + nowTime + " " + nowWeek;
     },
   },
   mutations: {},
