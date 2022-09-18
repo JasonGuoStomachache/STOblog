@@ -3,29 +3,27 @@
     <div class="mycard">
       <div class="cardleft">
         <div class="cardtitle">
-          <p class="articletitile">{{ article.articletitile }}</p>
+          <p class="articletitile">{{ article.articleTitle }}</p>
           <p class="articletime">
             &nbsp;&nbsp;
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-stoontimeshipment"></use>
             </svg>
-            &nbsp;发表于：{{ article.articletime.nowDate }}&nbsp;&nbsp;{{
-              article.articletime.nowTime
-            }}&nbsp;&nbsp;{{ article.articletime.nowWeek }}
+            &nbsp;发表于：{{ article.articleDate }}
           </p>
           <p class="articleauthor">
             &nbsp;&nbsp;
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-stoauthority"></use>
             </svg>
-            &nbsp;创作者：{{ article.articleauthor }}
+            &nbsp;创作者：{{ article.userAuthor.userNickName }}
           </p>
         </div>
         <hr style="width: 95%" />
         <div class="cardintroduction">
           <p class="articleintroduction">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
-              article.articleintroduction
+              article.articleIntroduction
             }}
           </p>
         </div>
@@ -39,7 +37,7 @@
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
           "
-          :src="article.articlecover"
+          :src="article.articleCoverUrl"
         />
       </div>
     </div>

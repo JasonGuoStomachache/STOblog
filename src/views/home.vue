@@ -11,7 +11,7 @@
     <director-header :isalwaystop="alwaystop"></director-header>
     <div class="mainbody">
       <colume :columetitle="colume_1"
-        ><img-card-list requirepath="nopath"></img-card-list
+        ><img-card-list :requirepath="requirepath"></img-card-list
       ></colume>
     </div>
   </div>
@@ -32,6 +32,7 @@ export default {
       imgsrc: "/backgroundimgs/01.png",
       colume_1: "START : DASH ! !",
       alwaystop: false,
+      requirepath: "/getAllArticleBlog",
     };
   },
 };
